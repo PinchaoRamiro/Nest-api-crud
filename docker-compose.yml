@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: root
+      DB_PASSWORD: csefvadfvfvea
+      DB_DATABASE: nestjsproyect
+      JWT_SECRET: csefvadfvfvea
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: csefvadfvfvea
+      POSTGRES_DB: nestjsproyect
+    ports:
+      - '5432:5432'
